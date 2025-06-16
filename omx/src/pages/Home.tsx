@@ -5,7 +5,8 @@
 function Home(){
 return(
     <div>
-        HOME
+        <h1>HOME</h1>
+        <p>Pagina de home!!!</p>
         </div>
 )
 }

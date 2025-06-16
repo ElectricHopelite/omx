@@ -4,7 +4,8 @@
 function Admin(){
     return(
         <div>
-            Admin
+             <h1>ADMIN</h1>
+        <p>Pagina de ADMIN!!!</p>
             </div>
     )
 }

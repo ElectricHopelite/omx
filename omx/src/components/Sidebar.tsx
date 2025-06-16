@@ -1,9 +1,28 @@
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import MenuIcon from '@mui/icons-material/Menu';
 import HomeIcon from '@mui/icons-material/Home';
+import SportsScoreIcon from '@mui/icons-material/SportsScore';
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import AdminPanelSettingsIcon from '@mui/icons-material/AdminPanelSettings';
 
+function Sidebar() {
+  const [sidebar, setSidebar] = useState(false);
+  const showSidebar = () => setSidebar(!sidebar);
+  return (
+    <nav className={sidebar ? "sidebar active" : "sidebar"}>
+      <button className="hamburger" type="button" onClick={showSidebar}>
+        <div><MenuIcon/></div>
+      </button>
+      <ul className="list-none" onClick={showSidebar}>
+        <li className="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-700 dark:bg-gray-800 dark:text-gray-200"><Link to="/"><HomeIcon/> Home</Link></li>
+        <li><Link to="/event"><SportsScoreIcon/>Events</Link></li>
+        <li><Link to="/profile"><AccountCircleIcon/>Profile</Link></li>
+        <li><Link to="/admin"><AdminPanelSettingsIcon/>Admin</Link></li>
 
-function Sidebar(){
-  return(
-    <button className="middle none center mr-3 rounded-lg bg-gradient-to-tr from-pink-600 to-pink-400 py-3 px-6 font-sans text-xs font-bold uppercase text-white shadow-md shadow-pink-500/20 transition-all hover:shadow-lg hover:shadow-pink-500/40 active:opacity-[0.85] disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"><HomeIcon color="primary" />Home</button>
-  )
+      </ul>
+    </nav>
+  );
 }
-export default Sidebar
+
+export default Sidebar;
